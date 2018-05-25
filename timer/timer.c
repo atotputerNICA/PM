@@ -14,7 +14,7 @@ void setTimer() {
 	TCCR1B |= (1 << WGM12);
 	TCCR1B |= (1 << CS12);
 
-	setTimerCount(F_CPU / 256 / 5);
+	setTimerCount(F_CPU / 256 / 4 );
 }
 
 void disableTimer() {

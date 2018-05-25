@@ -15,7 +15,6 @@
 #include "buzzer/buzzer.h"
 #include "led/led.h"
 #include "timer/timer.h"
-#include "wifi[172]/wifi.h"
 #define START 'A'
 #define NOT_ARMED 0
 #define INTRUDER 1
@@ -49,7 +48,6 @@ int keyboard[4][4] = {
 };
 
 int pos = 0;
-char buf[7];
 
 int state = NOT_ARMED, alarmCode = 0, insertedCode = 0;
 int nrRounds;
@@ -58,7 +56,7 @@ int distStarted;
 
 const int timerLimit = 15;
 int timerCnt = 0;
-int send = 0;
+
 void checkKey(int curState) {
 	int row = -1, col = -1;
 	if (GetKeyPressed(&row, &col) == 1) {
@@ -78,9 +76,6 @@ void checkKey(int curState) {
 				PORTD |= (_BV(BUZZER));
 				PORTD &= ~(_BV(MOTHER_LED));
 				LCD_printMessage("NOT ARMED");
-				memset(buf, 0, 7);
-				sprintf(buf, "%d", NOT_ARMED);
-				wifi_send(buf);
 				signalGreen();
 				alarmCode = 0;
 				insertedCode = 0;
@@ -192,12 +187,7 @@ int main(){
 	LCD_printAt(0, "PM2018");
 	LCD_writeInstr(LCD_INSTR_clearDisplay);
 
-	/*Init wifi connection*/
-	sei();
-	wifi_init();
-	_delay_ms(50);
-	LCD_init();
-	LCD_writeInstr(LCD_INSTR_clearDisplay);
+
 	while(1) {
 	// 	update_song();
 		//LCD_writeInstr(LCD_INSTR_clearDisplay);
@@ -215,7 +205,7 @@ int main(){
 
 	}
 	LCD_init();
-
+	sei();
 
 	// interrupt
 	TIMSK0 |= _BV(OCIE0A);
@@ -237,7 +227,6 @@ int main(){
 
 
 			case NOT_ARMED: {
-				send = 0;
 				int row = -1, col = -1;
 				if (GetKeyPressed(&row, &col) == 1) {
 					if (keyboard[row][col] == DELETE) {
@@ -295,15 +284,9 @@ int main(){
 			}
 
 			case GET_OUT_MOTHERFUCKER: {
-				if (!send) {
-					send = 1;
-					memset(buf, 0, 7);
-					sprintf(buf, "%d", GET_OUT_MOTHERFUCKER);
-					wifi_send(buf);
-				}
 				signalBuzzer200();
 				signalRed();
-				checkKey(GET_OUT_MOTHERFUCKER);
+				//checkKey(GET_OUT_MOTHERFUCKER);
 
 				break;
 			}

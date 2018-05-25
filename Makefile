@@ -4,7 +4,7 @@ all: main.hex
 
 program: upload
 
-main.elf: main.c lcd/lcd.c keypad/key.c buzzer/buzzer.c led/led.c timer/timer.c
+main.elf: main.c lcd/lcd.c keypad/key.c buzzer/buzzer.c led/led.c timer/timer.c wifi[172]/wifi.c wifi[172]/USART_RS232_C_file.c 
 	avr-g++ -mmcu=atmega324p -DF_CPU=16000000 -Wall -Os -o $@ $^
 
 main.hex: main.elf
