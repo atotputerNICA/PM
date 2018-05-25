@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/refresh"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/buttonstyle"
+            android:text="REFRESH"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/text_view_id"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            />
+        </ScrollView>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

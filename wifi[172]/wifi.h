@@ -38,10 +38,10 @@
 #define API_WRITE_KEY			"S4UL2UB628VWEKJS"
 #define CHANNEL_ID			  "503858"
 
-// #define SSID				      "atotputerNICA"
-// #define PASSWORD		    	"atotputerNICA"
-#define SSID				      "Summertime"
-#define PASSWORD		    	"vreauvara"
+#define SSID				      "atotputerNICA"
+#define PASSWORD		    	"atotputerNICA"
+// #define SSID				      "Summertime"
+// #define PASSWORD		    	"vreauvara"
 
 enum ESP8266_RESPONSE_STATUS{
 	ESP8266_RESPONSE_WAITING,

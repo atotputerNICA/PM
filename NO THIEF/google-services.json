@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "425012663904",
+    "firebase_url": "https://smarthome-8b52c.firebaseio.com",
+    "project_id": "smarthome-8b52c",
+    "storage_bucket": "smarthome-8b52c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425012663904:android:6dab1ebf86b1e39d",
+        "android_client_info": {
+          "package_name": "com.example.atotputernica.nothief"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425012663904-46gkq4mi9t10h14c2hd8k81r9vvl3ul3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_14LHGoGJQg6rZXJh80vQxhc5zXHHljk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
